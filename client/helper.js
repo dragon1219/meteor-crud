@@ -20,17 +20,27 @@ Template.createData.events({
 
       // Clear form
       event.target.text.value = "";
-    }
-
-});
-
-Template.createData.events({
+    },
 
     "click .delete":function(){
 
         Messages.remove(this._id);
 
-    }
+    },
+
+    "submit .update-data":function(evet){
+          // Prevent default browser form submit
+      event.preventDefault();
+
+      // Get value from form element
+      var text = event.target.text.value;
+
+      // Insert a task into the collection
+        Messages.update(this._id,{'text': text, 'dateCreated':new Date()});
+
+      // Clear form
+      event.target.text.value = "";
+}
 
 });
 
