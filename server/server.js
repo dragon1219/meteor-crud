@@ -3,8 +3,9 @@ Meteor.startup(function () {
     // code to run on server at startup
 
     // server: populate collections with some initial documents
-      Messages.insert({text: "Hello world"});
-      Photos.insert({name: "Super Bowl Party"});
+    //OR Clear the db for debugging
+      Messages.remove({});
+
 
   });
 

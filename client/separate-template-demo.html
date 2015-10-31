@@ -1,3 +1,32 @@
-<template name="create-data">
+<template name="createData">
+
+  <form class="input-data">
+    <input type="text" name="text" placeholder="Type to add new data" />
+  </form>
+
+
+    <p>
+        Data:
+    </p>
+    <table>
+        {{#each data}}
+        <tr>
+            <td>{{>datum}}</td>
+            <td><button class="delete">Delete</button></td>
+        </tr>
+        {{/each}}
+    </table>
+
+
+
+</template>
+
+<template name="datum">
+    <table>
+    <tr>
+        <td><li><h3>{{text}}</h3></li></td>
+        <td><h6>{{dateCreated}}</h6></td>
+    </tr>
+    </table>
 
 </template>
