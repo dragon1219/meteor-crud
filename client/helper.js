@@ -1,7 +1,9 @@
 Template.createData.helpers({
 
     data: function(){
-        return Messages.find({},{sort:{dateCreated:-1}});
+        //return the message that belongs to the current user
+        //User Meteor.userId() to get the current logged in user's ID
+        return Messages.find({owner:Meteor.userId()},{sort:{dateCreated:-1}});
     }
 
 });
@@ -16,7 +18,10 @@ Template.createData.events({
       var text = event.target.text.value;
 
       // Insert a task into the collection
-        Messages.insert({'text': text, 'dateCreated':new Date()});
+        Messages.insert({ text: text,
+                          dateCreated:new Date(),
+                          owner: Meteor.userId(),
+                          username: Meteor.user().username});
 
       // Clear form
       event.target.text.value = "";
@@ -36,7 +41,9 @@ Template.createData.events({
       var text = event.target.text.value;
 
       // Insert a task into the collection
-        Messages.update(this._id,{'text': text, 'dateCreated':new Date()});
+        Messages.update(this._id,{text: text,
+                                  dateCreated:new Date(),
+                                  owner: Meteor.userId(),                                      username:Meteor.user().username});
 
       // Clear form
       event.target.text.value = "";

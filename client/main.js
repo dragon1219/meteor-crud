@@ -8,8 +8,10 @@ Photos = new Mongo.Collection("photos");
 Meteor.subscribe("messages");
 Meteor.subscribe("photos");
 
-
-
+//settings for signing up users
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 
   // counter starts at 0
   Session.setDefault('counter', 0);

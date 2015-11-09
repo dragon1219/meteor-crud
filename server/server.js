@@ -4,7 +4,7 @@ Meteor.startup(function () {
 
     // server: populate collections with some initial documents
     //OR Clear the db for debugging
-      Messages.remove({});
+     // Messages.remove({});
 
 
   });
